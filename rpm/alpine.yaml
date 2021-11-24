@@ -11,7 +11,7 @@ Sources:
     - pine.conf
     - pine.conf.fixed
 Patches:
-    - '%{name}-%{version}.all.patch'
+    - '%{name}-%{version}-%SOURCE1'
 Description: |
     A free software email client developed at the University of Washington.
 
@@ -28,6 +28,7 @@ PkgConfigBR:
     - libcrypto
     - libssl
 SetupOptions: '-q -n %{name}-%{version}/upstream'
+#NoSetup: true
 ConfigOptions:
     - '--with-ssl'
     - '--with-ipv6'
