@@ -1,0 +1,5 @@
+* Wed Nov 24 2021 nephros <sailfish@nephros.org> - 2.25-3
+- move sources to github packaging repo
+
+* Fri Oct 10 2021 nephros <sailfish@nephros.org> - 2.25-2
+- submit 2.25 build to chum:testing
