@@ -10,11 +10,14 @@ Sources:
     - pine.conf
     - pine.conf.fixed
 Description: |
-    Alpine is a free software email client developed at the University of Washington.
+    A free software email client developed at the University of Washington.
 
-    Alpine is a rewrite of the Pine Message System that adds support for Unicode and other features. Alpine is meant to be suitable for both inexperienced email users and the most demanding of power users.
+    Alpine is a rewrite of the Pine Message System that adds support for
+    Unicode and other features. It is meant to be suitable for both
+    inexperienced email users and the most demanding of power users.
 
-    "Alpine" officially stands for Alternatively Licensed Program for Internet News and Email.
+    "Alpine" officially stands for Alternatively Licensed Program for Internet
+    News and Email.
 
 PkgConfigBR:
     - ncurses
