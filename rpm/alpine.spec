@@ -7,10 +7,13 @@ Name:       alpine
 
 # >> macros
 # << macros
+%define alpinedir .local/share/%{name}
+%define smimedir .local/share/%{name}/smime
+%define cachedir .cache/%{name}
 
 Summary:    Text-based mail and news client. Includes patches by Eduardo Chappa
 Version:    2.25
-Release:    3
+Release:    4
 Group:      Applications
 License:    ASL 2.0
 URL:        http://alpine.x10host.com/alpine/release/
@@ -24,6 +27,8 @@ BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(tinfo)
 BuildRequires:  pkgconfig(libcrypto)
 BuildRequires:  pkgconfig(libssl)
+BuildRequires:  pkgconfig(aspell)
+BuildRequires:  aspell
 
 %description
 A free software email client developed at the University of Washington.
@@ -90,14 +95,20 @@ Group:      Applications
     --without-tcl \
     --without-ntlm \
     --with-bundled-tools=mailutil,dmail \
-    --with-passfile=.alpine-passfile \
     --enable-from-encoding \
+    --with-passfile=%{alpinedir}/.passfile \
     --with-interactive-spellcheck=/usr/bin/aspell \
+    --with-default-mail-directory=%{alpinedir}/mail \
+    --with-default-addressbook=%{alpinedir}/addressbook \
+    --with-default-signature-file=%{alpinedir}/signature \
+    --with-smime-public-cert-directory=%{smimedir}/public \
+    --with-smime-private-key-directory=%{smimedir}/private \
+    --with-smime-cacert-directory=%{smimedir}/ca \
+    --with-default-html-directory=%{cachedir}/html \
     --with-local-support-info="%{_datadir}"/%{name}/pine.info \
     --with-system-pinerc="%{_datadir}"/%{name}/pine.conf \
     --with-system-fixed-pinerc="%{_datadir}"/%{name}/pine.conf.fixed \
-    --with-encryption-minimum-version=tls1_1 \
-    --with-ssl-certs-dir=/etc/ssl/certs
+    --with-encryption-minimum-version=tls1_1
 
 make %{?_smp_mflags}
 

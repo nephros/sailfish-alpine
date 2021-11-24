@@ -1,7 +1,7 @@
 Name: alpine
 Summary: "Text-based mail and news client. Includes patches by Eduardo Chappa"
 Version: 2.25
-Release: 3
+Release: 4
 URL: http://alpine.x10host.com/alpine/release/
 Group: Applications
 License: 'ASL 2.0'
@@ -22,13 +22,20 @@ Description: |
     "Alpine" officially stands for Alternatively Licensed Program for Internet
     News and Email.
 
+PkgBR:
+    - aspell
 PkgConfigBR:
     - ncurses
     - tinfo
     - libcrypto
     - libssl
+    - aspell
 SetupOptions: '-q -n %{name}-%{version}/upstream'
 #NoSetup: true
+Macros:
+  - 'alpinedir;.local/share/%{name}'
+  - 'smimedir;.local/share/%{name}/smime'
+  - 'cachedir;.cache/%{name}'
 ConfigOptions:
     - '--with-ssl'
     - '--with-ipv6'
@@ -42,14 +49,20 @@ ConfigOptions:
     - '--without-tcl'
     - '--without-ntlm'
     - '--with-bundled-tools=mailutil,dmail'
-    - '--with-passfile=.alpine-passfile'
     - '--enable-from-encoding'
+    - '--with-passfile=%{alpinedir}/.passfile'
     - '--with-interactive-spellcheck=/usr/bin/aspell'
+    - '--with-default-mail-directory=%{alpinedir}/mail'
+    - '--with-default-addressbook=%{alpinedir}/addressbook'
+    - '--with-default-signature-file=%{alpinedir}/signature'
+    - '--with-smime-public-cert-directory=%{smimedir}/public'
+    - '--with-smime-private-key-directory=%{smimedir}/private'
+    - '--with-smime-cacert-directory=%{smimedir}/ca'
+    - '--with-default-html-directory=%{cachedir}/html'
     - '--with-local-support-info="%{_datadir}"/%{name}/pine.info'
     - '--with-system-pinerc="%{_datadir}"/%{name}/pine.conf'
     - '--with-system-fixed-pinerc="%{_datadir}"/%{name}/pine.conf.fixed'
     - '--with-encryption-minimum-version=tls1_1'
-    - '--with-ssl-certs-dir=/etc/ssl/certs'
 Files:
   - '%{_bindir}/%{name}'
   - '%config %{_datadir}/%{name}/pine.conf'
