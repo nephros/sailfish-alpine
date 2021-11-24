@@ -1,0 +1,89 @@
+Name: alpine
+Summary: "Text-based mail and news client. Includes patches by Eduardo Chappa"
+Version: 2.25
+Release: 2
+URL: http://alpine.x10host.com/alpine/release/
+Group: Applications
+License: 'ASL 2.0'
+Sources:
+    - http://alpine.x10host.com/alpine/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
+    - pine.conf
+    - pine.conf.fixed
+Description: |
+    Alpine is a free software email client developed at the University of Washington.
+
+    Alpine is a rewrite of the Pine Message System that adds support for Unicode and other features. Alpine is meant to be suitable for both inexperienced email users and the most demanding of power users.
+
+    "Alpine" officially stands for Alternatively Licensed Program for Internet News and Email.
+
+PkgConfigBR:
+    - ncurses
+    - tinfo
+    - libcrypto
+    - libssl
+ConfigOptions:
+    - '--with-ssl'
+    - '--with-ipv6'
+    - '--with-pthread'
+    - '--disable-debug'
+    - '--disable-nls'
+    - '--disable-mouse'
+    - '--disable-keyboard-lock'
+    - '--without-ldap'
+    - '--without-krb5'
+    - '--without-tcl'
+    - '--without-ntlm'
+    - '--with-bundled-tools=mailutil,dmail'
+    - '--with-passfile=.alpine-passfile'
+    - '--enable-from-encoding'
+    - '--with-interactive-spellcheck=/usr/bin/aspell'
+    - '--with-local-support-info="%{_datadir}"/%{name}/pine.info'
+    - '--with-system-pinerc="%{_datadir}"/%{name}/pine.conf'
+    - '--with-system-fixed-pinerc="%{_datadir}"/%{name}/pine.conf.fixed'
+    - '--with-encryption-minimum-version=tls1_1'
+    - '--with-ssl-certs-dir=/etc/ssl/certs'
+Files:
+  - '%{_bindir}/%{name}'
+  - '%config %{_datadir}/%{name}/pine.conf'
+  - '%config %{_datadir}/%{name}/pine.conf.fixed'
+  - '%ghost %config %{_sysconfdir}/c-client.conf'
+
+SubPackages:
+    - Name:  doc
+      Summary: Documentation for %{name}
+      Group: Documentation
+      AutoDepend: false
+      BuildArch: noarch
+      Files:
+        - '%doc README NOTICE'
+        - '%doc doc/brochure.txt'
+        - '%doc doc/tech-notes/*'
+        - '%doc doc/mailcap.unx'
+        - '%doc doc/mime.types'
+        - '%{_mandir}/man1/*'
+
+    - Name: pico
+      AsWholeName: true
+      Summary: The pico text editor
+      Group: Applications
+      AutoDepend: false
+      Files:
+        - '%{_bindir}/pico'
+
+    - Name: pilot
+      AsWholeName: true
+      Summary: The pilot file manager
+      Group: Applications
+      AutoDepend: false
+      Files:
+        - '%{_bindir}/pilot'
+
+    - Name: tools
+      Summary: Extra binaries for %{name}
+      Group: Applications
+      AutoDepend: false
+      Files:
+        - '%{_bindir}/rpdump'
+        - '%{_bindir}/rpload'
+        - '%{_bindir}/mailutil'
+        - '%{_bindir}/dmail'
