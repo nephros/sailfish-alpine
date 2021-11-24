@@ -15,9 +15,11 @@ Group:      Applications
 License:    ASL 2.0
 URL:        http://alpine.x10host.com/alpine/release/
 Source0:    http://alpine.x10host.com/alpine/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
-Source1:    pine.conf
-Source2:    pine.conf.fixed
+Source1:    http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all.patch.gz
+Source2:    pine.conf
+Source3:    pine.conf.fixed
 Source100:  alpine.yaml
+Patch0:     %{name}-%{version}.all.patch
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(tinfo)
 BuildRequires:  pkgconfig(libcrypto)
@@ -66,6 +68,8 @@ Group:      Applications
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
+# %{name}-%{version}.all.patch
+%patch0 -p1
 # >> setup
 # << setup
 

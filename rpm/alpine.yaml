@@ -7,8 +7,11 @@ Group: Applications
 License: 'ASL 2.0'
 Sources:
     - http://alpine.x10host.com/alpine/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
+    - http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all.patch.gz
     - pine.conf
     - pine.conf.fixed
+Patches:
+    - '%{name}-%{version}.all.patch'
 Description: |
     A free software email client developed at the University of Washington.
 
