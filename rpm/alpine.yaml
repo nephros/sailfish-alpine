@@ -1,7 +1,7 @@
 Name: alpine
 Summary: "Text-based mail and news client. Includes patches by Eduardo Chappa"
 Version: 2.25
-Release: 2
+Release: 3
 URL: http://alpine.x10host.com/alpine/release/
 Group: Applications
 License: 'ASL 2.0'
@@ -21,6 +21,7 @@ PkgConfigBR:
     - tinfo
     - libcrypto
     - libssl
+SetupOptions: '-q -n %{name}-%{version}/upstream'
 ConfigOptions:
     - '--with-ssl'
     - '--with-ipv6'
