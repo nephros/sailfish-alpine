@@ -1,3 +1,3 @@
 # sailfish-alpine
 
-Packaging Repository for alpine on SailfishOS
+Packaging Repository for Alpine on SailfishOS
