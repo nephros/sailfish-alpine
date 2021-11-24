@@ -19,7 +19,7 @@ Source1:    http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all
 Source2:    pine.conf
 Source3:    pine.conf.fixed
 Source100:  alpine.yaml
-Patch0:     %{name}-%{version}-%SOURCE1
+Patch0:     %SOURCE1
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(tinfo)
 BuildRequires:  pkgconfig(libcrypto)
@@ -68,13 +68,9 @@ Group:      Applications
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
-# %{name}-%{version}-%SOURCE1
+# %SOURCE1
 %patch0 -p1
 # >> setup
-#%%setup -q -n %{name}-%{version}/upstream
-#%%apply_patch %{name}-%{version}-%%SOURCE1
-
-
 # << setup
 
 %build

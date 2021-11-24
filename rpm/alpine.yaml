@@ -11,7 +11,7 @@ Sources:
     - pine.conf
     - pine.conf.fixed
 Patches:
-    - '%{name}-%{version}-%SOURCE1'
+    - '%SOURCE1'
 Description: |
     A free software email client developed at the University of Washington.
 
