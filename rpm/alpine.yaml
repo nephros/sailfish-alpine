@@ -51,7 +51,7 @@ ConfigOptions:
     - '--with-bundled-tools=mailutil,dmail'
     - '--enable-from-encoding'
     - '--with-passfile=%{alpinedir}/.passfile'
-    - '--with-interactive-spellcheck=/usr/bin/aspell'
+    - '--with-interactive-spellcheck=aspell'
     - '--with-default-mail-directory=%{alpinedir}/mail'
     - '--with-default-addressbook=%{alpinedir}/addressbook'
     - '--with-default-signature-file=%{alpinedir}/signature'
