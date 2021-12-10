@@ -1,3 +1,6 @@
+* Fri Dec 10 2021 nephros <sailfish@nephros.org> - 2.25.1-1
+- version bump
+
 * Wed Nov 24 2021 nephros <sailfish@nephros.org> - 2.25-4
 - move default directories to XDG locations where possible
 
