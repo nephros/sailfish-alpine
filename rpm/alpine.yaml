@@ -22,6 +22,16 @@ Description: |
     "Alpine" officially stands for Alternatively Licensed Program for Internet
     News and Email.
 
+    %if "%{?vendor}" == "chum"
+    PackageName: Alpine
+    DeveloperName: nephros
+    Type: console-application
+    Categories:
+      - Network
+      - Office
+      - Email
+    %endif
+
 PkgBR:
     - aspell
 PkgConfigBR:

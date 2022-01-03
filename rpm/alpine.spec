@@ -40,6 +40,16 @@ inexperienced email users and the most demanding of power users.
 "Alpine" officially stands for Alternatively Licensed Program for Internet
 News and Email.
 
+%if "%{?vendor}" == "chum"
+PackageName: Alpine
+DeveloperName: nephros
+Type: console-application
+Categories:
+  - Network
+  - Office
+  - Email
+%endif
+
 
 %package doc
 Summary:    Documentation for %{name}
