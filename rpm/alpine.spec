@@ -42,12 +42,18 @@ News and Email.
 
 %if "%{?vendor}" == "chum"
 PackageName: Alpine
-DeveloperName: nephros
+DeveloperName: Eduardo Chappa
+PackagerName: nephros
 Type: console-application
 Categories:
-  - Network
   - Office
   - Email
+  - News
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+Url:
+  Help: http://www.alpine.x10host.com/alpine/alpine-info/
+  Bugtracker: http://www.alpine.x10host.com/alpine/contact.html
 %endif
 
 
@@ -59,19 +65,62 @@ BuildArch:  noarch
 %description doc
 %{summary}.
 
+%if "%{?vendor}" == "chum"
+DeveloperName: Eduardo Chappa
+PackagerName: nephros
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+Categories:
+  - Documentation
+%endif
+
+
 %package -n pico
-Summary:    The pico text editor
+Summary:    The Pico text editor
 Group:      Applications
 
 %description -n pico
 %{summary}.
 
+Text editor that comes with the Alpine email program.
+This is the original that inspired the `nano` text editor.
+
+%if "%{?vendor}" == "chum"
+PackageName: Pico
+DeveloperName: Eduardo Chappa
+PackagerName: nephros
+Type: console-application
+Categories:
+  - Office
+  - TextTools
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+Url:
+  Help: https://en.wikipedia.org/wiki/Pico_(text_editor)
+%endif
+
+
 %package -n pilot
-Summary:    The pilot file manager
+Summary:    The Pilot file manager
 Group:      Applications
 
 %description -n pilot
 %{summary}.
+
+File manager program that comes with the Alpine email program.
+
+%if "%{?vendor}" == "chum"
+PackageName: Pilot
+DeveloperName: Eduardo Chappa
+PackagerName: nephros
+Type: console-application
+Categories:
+  - Office
+  - FileManager
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+%endif
+
 
 %package tools
 Summary:    Extra binaries for %{name}
@@ -79,6 +128,21 @@ Group:      Applications
 
 %description tools
 %{summary}.
+
+These are additional tools for the Alpine email program.
+
+%if "%{?vendor}" == "chum"
+PackageName: Alpine tools
+DeveloperName: Eduardo Chappa
+PackagerName: nephros
+Type: console-application
+Categories:
+  - Email
+  - Utility
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+%endif
+
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
