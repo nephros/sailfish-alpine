@@ -49,6 +49,8 @@ Categories:
   - Office
   - Email
   - News
+Screenshots:
+  - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Alpine_001.png
 Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
 Url:
@@ -92,9 +94,11 @@ PackagerName: nephros
 Type: console-application
 Categories:
   - Office
-  - TextTools
+  - TextEditor
 Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+Screenshots:
+  - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Pico_001.png
 Url:
   Help: https://en.wikipedia.org/wiki/Pico_(text_editor)
 %endif
@@ -117,6 +121,8 @@ Type: console-application
 Categories:
   - Office
   - FileManager
+Screenshots:
+  - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Pilot_001.png
 Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
 %endif
