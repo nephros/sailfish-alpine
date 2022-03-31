@@ -135,7 +135,8 @@ Group:      Applications
 %description tools
 %{summary}.
 
-These are additional tools for the Alpine email program.
+These are additional tools for the Alpine email program:
+rpdump, rpload, mailutil, and dmail
 
 %if "%{?vendor}" == "chum"
 PackageName: Alpine tools
