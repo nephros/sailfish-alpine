@@ -50,10 +50,17 @@ PkgConfigBR:
     - aspell
 SetupOptions: '-q -n %{name}-%{version}/upstream'
 #NoSetup: true
+Macros2:
+  # needed so custom macros2 is possible
+  - 'foo;bar'
 Macros:
   - 'alpinedir;.local/share/%{name}'
   - 'smimedir;.local/share/%{name}/smime'
   - 'cachedir;.cache/%{name}'
+RpmLintIgnore:
+  - 'description-line-too-long'
+  - 'invalid-url'
+  - 'ncoherent-version-in-changelog'
 ConfigOptions:
     - '--with-ssl'
     - '--with-ipv6'

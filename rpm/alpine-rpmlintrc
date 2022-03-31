@@ -1,0 +1,4 @@
+from Config import *
+addFilter("description-line-too-long")
+addFilter("invalid-url")
+addFilter("ncoherent-version-in-changelog")

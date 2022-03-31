@@ -6,7 +6,14 @@
 Name:       alpine
 
 # >> macros
+# 4.2 is 40200
+# 4.3 is 40300
+%if %{sailfishos_version} >= 40400
+# SFOS 4.4 ships libxcrypt instead of glibc libcrypt
+BuildRequires:  pkgconfig(libcrypt)
+%endif
 # << macros
+
 %define alpinedir .local/share/%{name}
 %define smimedir .local/share/%{name}/smime
 %define cachedir .cache/%{name}
@@ -22,6 +29,7 @@ Source1:    http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all
 Source2:    pine.conf
 Source3:    pine.conf.fixed
 Source100:  alpine.yaml
+Source101:  alpine-rpmlintrc
 Patch0:     %SOURCE1
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(tinfo)
@@ -151,12 +159,26 @@ Custom:
 %endif
 
 
+# >> macros2
+# 4.2 is 40200
+# 4.3 is 40300
+%if %{sailfishos_version} >= 40400
+# SFOS 4.4 ships libxcrypt instead of glibc libcrypt
+printf "INFO: using libxcrypt implementation of libcrypt\n"
+BuildRequires:  pkgconfig(libcrypt)
+%else
+printf "INFO: using glibc implementation of libcrypt\n"
+%endif
+# << macros2
+%define foo bar
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
 # %SOURCE1
 %patch0 -p1
 # >> setup
+printf "INFO: SFOS VERSION is: %s\n" %{sailfishos_version}
 # << setup
 
 %build
