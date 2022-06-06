@@ -1,3 +1,6 @@
+* Mon Jun  6 2022 nephros <sailfish@nephros.org> - 2.25.1-2
+- fix system pine.conf locations
+
 * Fri Dec 10 2021 nephros <sailfish@nephros.org> - 2.25.1-1
 - version bump
 

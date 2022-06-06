@@ -6,21 +6,14 @@
 Name:       alpine
 
 # >> macros
-# 4.2 is 40200
-# 4.3 is 40300
-%if %{sailfishos_version} >= 40400
-# SFOS 4.4 ships libxcrypt instead of glibc libcrypt
-BuildRequires:  pkgconfig(libcrypt)
-%endif
 # << macros
-
 %define alpinedir .local/share/%{name}
 %define smimedir .local/share/%{name}/smime
 %define cachedir .cache/%{name}
 
 Summary:    Text-based mail and news client. Includes patches by Eduardo Chappa
 Version:    2.25.1
-Release:    1
+Release:    2
 Group:      Applications
 License:    ASL 2.0
 URL:        http://alpine.x10host.com/alpine/release/
@@ -238,8 +231,8 @@ pushd imap
 install -s -D -m 0755 mailutil/mailutil %{buildroot}%{_bindir}/mailutil
 install -s -D -m 0755 dmail/dmail %{buildroot}%{_bindir}/dmail
 popd
-install -D -m 644 %SOURCE1 %{buildroot}%{_datadir}/%{name}/pine.conf
-install -D -m 644 %SOURCE2 %{buildroot}%{_datadir}/%{name}/pine.conf.fixed
+install -D -m 644 %SOURCE2 %{buildroot}%{_datadir}/%{name}/pine.conf
+install -D -m 644 %SOURCE3 %{buildroot}%{_datadir}/%{name}/pine.conf.fixed
 
 # we don't need those in the package:
 rm -f doc/tech-notes/Makefile
