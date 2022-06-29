@@ -50,13 +50,18 @@ PkgConfigBR:
     - aspell
 SetupOptions: '-q -n %{name}-%{version}/upstream'
 #NoSetup: true
-Macros2:
-  # needed so custom macros2 is possible
-  - 'foo;bar'
 Macros:
   - 'alpinedir;.local/share/%{name}'
   - 'smimedir;.local/share/%{name}/smime'
   - 'cachedir;.cache/%{name}'
+  # Hack/Work around spectacle deleting the custom macros:
+  - |
+    hack;for_spectacle_bug_follows
+    %if %{sailfishos_version} >= 40400
+    # SFOS 4.4 ships libxcrypt instead of glibc libcrypt
+    BuildRequires:  pkgconfig(libcrypt)
+    BuildRequires:  libxcrypt-compat
+    %endif
 RpmLintIgnore:
   - 'description-line-too-long'
   - 'invalid-url'

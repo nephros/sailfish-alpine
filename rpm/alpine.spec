@@ -10,6 +10,12 @@ Name:       alpine
 %define alpinedir .local/share/%{name}
 %define smimedir .local/share/%{name}/smime
 %define cachedir .cache/%{name}
+%define hack for_spectacle_bug_follows
+%if %{sailfishos_version} >= 40400
+# SFOS 4.4 ships libxcrypt instead of glibc libcrypt
+BuildRequires:  pkgconfig(libcrypt)
+BuildRequires:  libxcrypt-compat
+%endif
 
 Summary:    Text-based mail and news client. Includes patches by Eduardo Chappa
 Version:    2.25.1
@@ -151,20 +157,6 @@ Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
 %endif
 
-
-# >> macros2
-# 4.2 is 40200
-# 4.3 is 40300
-%if %{sailfishos_version} >= 40400
-# SFOS 4.4 ships libxcrypt instead of glibc libcrypt
-printf "INFO: using libxcrypt implementation of libcrypt, and libxcrypt-compat\n"
-BuildRequires:  pkgconfig(libcrypt)
-BuildRequires:  libxcrypt-compat
-%else
-printf "INFO: using glibc implementation of libcrypt\n"
-%endif
-# << macros2
-%define foo bar
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
