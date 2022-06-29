@@ -157,8 +157,9 @@ Custom:
 # 4.3 is 40300
 %if %{sailfishos_version} >= 40400
 # SFOS 4.4 ships libxcrypt instead of glibc libcrypt
-printf "INFO: using libxcrypt implementation of libcrypt\n"
+printf "INFO: using libxcrypt implementation of libcrypt, and libxcrypt-compat\n"
 BuildRequires:  pkgconfig(libcrypt)
+BuildRequires:  libxcrypt-compat
 %else
 printf "INFO: using glibc implementation of libcrypt\n"
 %endif
