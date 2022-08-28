@@ -1,7 +1,7 @@
 Name: alpine
 Summary: "Text-based mail and news client. Includes patches by Eduardo Chappa"
-Version: 2.25.1
-Release: 2
+Version: 2.26
+Release: 1
 URL: http://alpine.x10host.com/alpine/release/
 Group: Applications
 License: 'ASL 2.0'

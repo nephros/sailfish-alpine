@@ -18,8 +18,8 @@ BuildRequires:  libxcrypt-compat
 %endif
 
 Summary:    Text-based mail and news client. Includes patches by Eduardo Chappa
-Version:    2.25.1
-Release:    2
+Version:    2.26
+Release:    1
 Group:      Applications
 License:    ASL 2.0
 URL:        http://alpine.x10host.com/alpine/release/
