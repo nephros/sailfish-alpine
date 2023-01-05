@@ -2,12 +2,12 @@ Name: alpine
 Summary: "Text-based mail and news client. Includes patches by Eduardo Chappa"
 Version: 2.26
 Release: 1
-URL: http://alpine.x10host.com/alpine/release/
+URL: http://alpineapp.email
 Group: Applications
 License: 'ASL 2.0'
 Sources:
-    - http://alpine.x10host.com/alpine/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
-    - http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all.patch.gz
+    - http://alpineapp.email/%{name}/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
+    - http://alpineapp.email/%{name}/patches/%{name}-%{version}/all.patch.gz
     - pine.conf
     - pine.conf.fixed
 Patches:
@@ -35,9 +35,9 @@ Description: |
       - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Alpine_001.png
     Custom:
       PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+      Repo: https://repo.or.cz/alpine.git
     Url:
-      Help: http://www.alpine.x10host.com/alpine/alpine-info/
-      Bugtracker: http://www.alpine.x10host.com/alpine/contact.html
+      Help: https://alpineapp.email/pine/pine-info/index.html
     %endif
 
 PkgBR:

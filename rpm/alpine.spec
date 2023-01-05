@@ -22,9 +22,9 @@ Version:    2.26
 Release:    1
 Group:      Applications
 License:    ASL 2.0
-URL:        http://alpine.x10host.com/alpine/release/
-Source0:    http://alpine.x10host.com/alpine/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
-Source1:    http://www.alpine.x10host.com/%{name}/patches/%{name}-%{version}/all.patch.gz
+URL:        http://alpineapp.email
+Source0:    http://alpineapp.email/%{name}/patches/%{name}-%{version}/%{name}-%{version}.tar.xz
+Source1:    http://alpineapp.email/%{name}/patches/%{name}-%{version}/all.patch.gz
 Source2:    pine.conf
 Source3:    pine.conf.fixed
 Source100:  alpine.yaml
@@ -60,9 +60,9 @@ Screenshots:
   - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Alpine_001.png
 Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+  Repo: https://repo.or.cz/alpine.git
 Url:
-  Help: http://www.alpine.x10host.com/alpine/alpine-info/
-  Bugtracker: http://www.alpine.x10host.com/alpine/contact.html
+  Help: https://alpineapp.email/pine/pine-info/index.html
 %endif
 
 
