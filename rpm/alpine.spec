@@ -61,7 +61,7 @@ Screenshots:
 Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
   Repo: https://repo.or.cz/alpine.git
-Url:
+Links:
   Help: https://alpineapp.email/pine/pine-info/index.html
 %endif
 
@@ -95,9 +95,9 @@ Text editor that comes with the Alpine email program.
 This is the original that inspired the `nano` text editor.
 
 %if "%{?vendor}" == "chum"
-PackageName: Pico
+Title: Pico
 DeveloperName: Eduardo Chappa
-PackagerName: nephros
+PackagedBy: nephros
 Type: console-application
 Categories:
   - Office
@@ -106,7 +106,7 @@ Custom:
   PackagingRepo: https://github.com/nephros/sailfish-alpine.git
 Screenshots:
   - https://github.com/nephros/sailfish-alpine/raw/master/Screenshot_Pico_001.png
-Url:
+Links:
   Help: https://en.wikipedia.org/wiki/Pico_(text_editor)
 %endif
 
@@ -146,9 +146,9 @@ These are additional tools for the Alpine email program:
 rpdump, rpload, mailutil, and dmail
 
 %if "%{?vendor}" == "chum"
-PackageName: Alpine tools
+Title: Alpine tools
 DeveloperName: Eduardo Chappa
-PackagerName: nephros
+PackagedBy: nephros
 Type: console-application
 Categories:
   - Email
@@ -199,7 +199,7 @@ printf "INFO: SFOS VERSION is: %s\n" %{sailfishos_version}
     --with-system-fixed-pinerc="%{_datadir}"/%{name}/pine.conf.fixed \
     --with-encryption-minimum-version=tls1_1
 
-make %{?_smp_mflags}
+%make_build
 
 # >> build post
 pushd imap
