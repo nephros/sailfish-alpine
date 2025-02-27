@@ -36,6 +36,8 @@ BuildRequires:  pkgconfig(libcrypto)
 BuildRequires:  pkgconfig(libssl)
 BuildRequires:  pkgconfig(aspell)
 BuildRequires:  aspell
+BuildRequires:  python3-rpm-macros
+BuildRequires:  python3-base
 
 %description
 A free software email client developed at the University of Washington.
@@ -158,6 +160,35 @@ Custom:
 %endif
 
 
+%package -n oauth2-py
+Summary:    A python script to help with OAUTH tokens
+Group:      Applications
+BuildArch:  noarch
+
+%description -n oauth2-py
+The script ooauth2.py is a python script that can be used to obtain the initial refresh token
+and access token for an app, or to renew an access token, and in both cases obtain the encoded
+base64 encoded string that is used to add to an authorization command in an IMAP or SMTP
+server.
+
+See https://alpineapp.email/scripts/ooauth2.html for details.
+
+%if "%{?vendor}" == "chum"
+Title: oauth.py
+DeveloperName: Eduardo Chappa
+PackagedBy: nephros
+Categories:
+  - Office
+  - Email
+  - Utility
+Custom:
+  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+  Repo: https://repo.or.cz/alpine.git
+Links:
+  Help: https://alpineapp.email/scripts/ooauth2.html
+%endif
+
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
@@ -227,6 +258,8 @@ popd
 install -D -m 644 %SOURCE2 %{buildroot}%{_datadir}/%{name}/pine.conf
 install -D -m 644 %SOURCE3 %{buildroot}%{_datadir}/%{name}/pine.conf.fixed
 
+install -D -m 755 scripts/ooauth2.py %{buildroot}%{_bindir}/ooauth2.py
+
 # we don't need those in the package:
 rm -f doc/tech-notes/Makefile
 rm -f doc/tech-notes/pn4tn
@@ -273,3 +306,11 @@ rm -f doc/tech-notes/pnuts.4tech-notes
 %{_bindir}/dmail
 # >> files tools
 # << files tools
+
+%files -n oauth2-py
+%defattr(-,root,root,-)
+# >> files oauth2-py
+%doc scripts/README
+%{_bindir}/ooauth2.py
+#%%pycached %%{_bindir}/ooauth2.py
+# << files oauth2-py

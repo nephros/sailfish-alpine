@@ -42,6 +42,8 @@ Description: |
 
 PkgBR:
     - aspell
+    - python3-rpm-macros
+    - python3-base
 PkgConfigBR:
     - ncurses
     - tinfo
@@ -205,3 +207,33 @@ SubPackages:
         - '%{_bindir}/rpload'
         - '%{_bindir}/mailutil'
         - '%{_bindir}/dmail'
+
+    - Name:  oauth2-py
+      Summary: A python script to help with OAUTH tokens
+      Group: Applications
+      AsWholeName: true
+      AutoDepend: false
+      BuildArch: noarch
+      Description: |
+          The script ooauth2.py is a python script that can be used to obtain the initial refresh token
+          and access token for an app, or to renew an access token, and in both cases obtain the encoded
+          base64 encoded string that is used to add to an authorization command in an IMAP or SMTP
+          server.
+
+          See https://alpineapp.email/scripts/ooauth2.html for details.
+
+          %if "%{?vendor}" == "chum"
+          Title: oauth.py
+          DeveloperName: Eduardo Chappa
+          PackagedBy: nephros
+          Categories:
+            - Office
+            - Email
+            - Utility
+          Custom:
+            PackagingRepo: https://github.com/nephros/sailfish-alpine.git
+            Repo: https://repo.or.cz/alpine.git
+          Links:
+            Help: https://alpineapp.email/scripts/ooauth2.html
+          %endif
+
