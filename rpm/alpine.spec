@@ -68,24 +68,6 @@ Links:
 %endif
 
 
-%package doc
-Summary:    Documentation for %{name}
-Group:      Documentation
-BuildArch:  noarch
-
-%description doc
-%{summary}.
-
-%if "%{?vendor}" == "chum"
-DeveloperName: Eduardo Chappa
-PackagerName: nephros
-Custom:
-  PackagingRepo: https://github.com/nephros/sailfish-alpine.git
-Categories:
-  - Documentation
-%endif
-
-
 %package -n pico
 Summary:    The Pico text editor
 Group:      Applications
@@ -259,11 +241,14 @@ install -D -m 644 %SOURCE2 %{buildroot}%{_datadir}/%{name}/pine.conf
 install -D -m 644 %SOURCE3 %{buildroot}%{_datadir}/%{name}/pine.conf.fixed
 
 install -D -m 755 scripts/ooauth2.py %{buildroot}%{_bindir}/ooauth2.py
+mv scripts/README scripts/README.ooauth2-py
 
 # we don't need those in the package:
-rm -f doc/tech-notes/Makefile
-rm -f doc/tech-notes/pn4tn
-rm -f doc/tech-notes/pnuts.4tech-notes
+# rm -f doc/tech-notes/Makefile
+# rm -f doc/tech-notes/pn4tn
+# rm -f doc/tech-notes/pnuts.4tech-notes
+rm -rf %{buildroot}%{_docdir}
+rm -rf %{buildroot}%{_mandir}
 # << install post
 
 %files
@@ -274,17 +259,6 @@ rm -f doc/tech-notes/pnuts.4tech-notes
 %ghost %config %{_sysconfdir}/c-client.conf
 # >> files
 # << files
-
-%files doc
-%defattr(-,root,root,-)
-%doc README NOTICE
-%doc doc/brochure.txt
-%doc doc/tech-notes/*
-%doc doc/mailcap.unx
-%doc doc/mime.types
-%{_mandir}/man1/*
-# >> files doc
-# << files doc
 
 %files -n pico
 %defattr(-,root,root,-)
@@ -310,7 +284,7 @@ rm -f doc/tech-notes/pnuts.4tech-notes
 %files -n oauth2-py
 %defattr(-,root,root,-)
 # >> files oauth2-py
-%doc scripts/README
+%doc scripts/README.ooauth2-py
 %{_bindir}/ooauth2.py
 #%%pycached %%{_bindir}/ooauth2.py
 # << files oauth2-py
