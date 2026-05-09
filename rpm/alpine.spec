@@ -33,7 +33,7 @@ Patch0:     %SOURCE1
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(tinfo)
 BuildRequires:  pkgconfig(libcrypto)
-BuildRequires:  pkgconfig(libssl)
+BuildRequires:  pkgconfig(libssl) < 3.0.0
 BuildRequires:  pkgconfig(aspell)
 BuildRequires:  aspell
 BuildRequires:  python3-rpm-macros
@@ -226,7 +226,6 @@ popd
 # << build post
 
 %install
-rm -rf %{buildroot}
 # >> install pre
 # << install pre
 %make_install
@@ -252,7 +251,6 @@ rm -rf %{buildroot}%{_mandir}
 # << install post
 
 %files
-%defattr(-,root,root,-)
 %{_bindir}/%{name}
 %config %{_datadir}/%{name}/pine.conf
 %config %{_datadir}/%{name}/pine.conf.fixed
@@ -261,19 +259,16 @@ rm -rf %{buildroot}%{_mandir}
 # << files
 
 %files -n pico
-%defattr(-,root,root,-)
 %{_bindir}/pico
 # >> files pico
 # << files pico
 
 %files -n pilot
-%defattr(-,root,root,-)
 %{_bindir}/pilot
 # >> files pilot
 # << files pilot
 
 %files tools
-%defattr(-,root,root,-)
 %{_bindir}/rpdump
 %{_bindir}/rpload
 %{_bindir}/mailutil
@@ -282,7 +277,6 @@ rm -rf %{buildroot}%{_mandir}
 # << files tools
 
 %files -n oauth2-py
-%defattr(-,root,root,-)
 # >> files oauth2-py
 %doc scripts/README.ooauth2-py
 %{_bindir}/ooauth2.py

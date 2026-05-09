@@ -48,7 +48,7 @@ PkgConfigBR:
     - ncurses
     - tinfo
     - libcrypto
-    - libssl
+    - libssl < 3.0.0
     - aspell
 SetupOptions: '-q -n %{name}-%{version}/upstream'
 #NoSetup: true
