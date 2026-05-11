@@ -49,10 +49,10 @@ inexperienced email users and the most demanding of power users.
 "Alpine" officially stands for Alternatively Licensed Program for Internet
 News and Email.
 
-%if "%{?vendor}" == "chum"
-PackageName: Alpine
+%if 0%{?_chum}
+Title: Alpine
 DeveloperName: Eduardo Chappa
-PackagerName: nephros
+PackagedBy: nephros
 Type: console-application
 Categories:
   - Office
@@ -78,7 +78,7 @@ Group:      Applications
 Text editor that comes with the Alpine email program.
 This is the original that inspired the `nano` text editor.
 
-%if "%{?vendor}" == "chum"
+%if 0%{?_chum}
 Title: Pico
 DeveloperName: Eduardo Chappa
 PackagedBy: nephros
@@ -104,10 +104,10 @@ Group:      Applications
 
 File manager program that comes with the Alpine email program.
 
-%if "%{?vendor}" == "chum"
-PackageName: Pilot
+%if 0%{?_chum}
+Title: Pilot
 DeveloperName: Eduardo Chappa
-PackagerName: nephros
+PackagedBy: nephros
 Type: console-application
 Categories:
   - Office
@@ -129,7 +129,7 @@ Group:      Applications
 These are additional tools for the Alpine email program:
 rpdump, rpload, mailutil, and dmail
 
-%if "%{?vendor}" == "chum"
+%if 0%{?_chum}
 Title: Alpine tools
 DeveloperName: Eduardo Chappa
 PackagedBy: nephros
@@ -155,7 +155,7 @@ server.
 
 See https://alpineapp.email/scripts/ooauth2.html for details.
 
-%if "%{?vendor}" == "chum"
+%if 0%{?_chum}
 Title: oauth.py
 DeveloperName: Eduardo Chappa
 PackagedBy: nephros
