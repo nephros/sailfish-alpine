@@ -68,6 +68,8 @@ RpmLintIgnore:
   - 'description-line-too-long'
   - 'invalid-url'
   - 'ncoherent-version-in-changelog'
+# Others break build at least in SFOS 5.1
+Builder: none
 ConfigOptions:
     - '--with-ssl'
     - '--with-ipv6'

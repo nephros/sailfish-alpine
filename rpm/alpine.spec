@@ -213,23 +213,23 @@ printf "INFO: SFOS VERSION is: %s\n" %{sailfishos_version}
     --with-system-fixed-pinerc="%{_datadir}"/%{name}/pine.conf.fixed \
     --with-encryption-minimum-version=tls1_1
 
-%make_build
+make -j1
 
 # >> build post
 pushd imap
 pushd mailutil
-make %{?_smp_mflags}
+make -j1
 popd
 pushd dmail
-make %{?_smp_mflags}
+make -j1
 popd
 popd
 # << build post
 
 %install
 # >> install pre
-# << install pre
 %make_install
+# << install pre
 
 # >> install post
 pushd imap
