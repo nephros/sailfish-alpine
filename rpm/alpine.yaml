@@ -59,7 +59,7 @@ Macros:
   # Hack/Work around spectacle deleting the custom macros:
   - |
     hack;for_spectacle_bug_follows
-    %if %{sailfishos_version} >= 40400
+    %if 0%{?sailfishos_version} >= 40400
     # SFOS 4.4 ships libxcrypt instead of glibc libcrypt
     BuildRequires:  pkgconfig(libcrypt)
     BuildRequires:  libxcrypt-compat

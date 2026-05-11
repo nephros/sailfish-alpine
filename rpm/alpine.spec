@@ -11,7 +11,7 @@ Name:       alpine
 %define smimedir .local/share/%{name}/smime
 %define cachedir .cache/%{name}
 %define hack for_spectacle_bug_follows
-%if %{sailfishos_version} >= 40400
+%if 0%{?sailfishos_version} >= 40400
 # SFOS 4.4 ships libxcrypt instead of glibc libcrypt
 BuildRequires:  pkgconfig(libcrypt)
 BuildRequires:  libxcrypt-compat
