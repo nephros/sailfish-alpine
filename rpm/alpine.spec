@@ -189,6 +189,7 @@ printf "INFO: SFOS VERSION is: %s\n" %{sailfishos_version}
     --with-ipv6 \
     --with-pthread \
     --disable-debug \
+    --disable-rpath \
     --disable-nls \
     --disable-mouse \
     --disable-keyboard-lock \
